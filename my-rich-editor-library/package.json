@@ -1,6 +1,6 @@
 {
   "name": "@sofer1445/angular-rich-text-editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular 20 Rich Text Editor with Hebrew support - עורך טקסט עשיר לאנגולר",
   "keywords": [
     "angular",
