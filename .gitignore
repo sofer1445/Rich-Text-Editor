@@ -6,6 +6,9 @@ package-lock.json
 dist/
 *.tsbuildinfo
 
+# Demo/Test apps
+demo-app/
+
 # IDE
 .vscode/
 .idea/
