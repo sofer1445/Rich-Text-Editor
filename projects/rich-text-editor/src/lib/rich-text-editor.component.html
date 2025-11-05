@@ -1,0 +1,108 @@
+<div class="rte-container">
+  <!-- Toolbar -->
+  <div class="rte-toolbar">
+    <!-- Font family dropdown -->
+    <select [(ngModel)]="selectedFontFamily" (change)="changeFontFamily(selectedFontFamily)" class="rte-select">
+      <option *ngFor="let font of fontFamilies" [value]="font">{{ font }}</option>
+    </select>
+
+    <!-- Font size dropdown -->
+    <select [(ngModel)]="selectedFontSize" (change)="changeFontSize(selectedFontSize)" class="rte-select">
+      <option *ngFor="let size of fontSizes" [value]="size">{{ size }}px</option>
+    </select>
+
+    <div class="rte-divider"></div>
+
+    <!-- Text formatting buttons -->
+    <button (click)="execCommand('bold')" class="rte-btn" title="Bold (Ctrl+B)">
+      <strong>B</strong>
+    </button>
+    <button (click)="execCommand('italic')" class="rte-btn" title="Italic (Ctrl+I)">
+      <em>I</em>
+    </button>
+    <button (click)="execCommand('underline')" class="rte-btn" title="Underline (Ctrl+U)">
+      <u>U</u>
+    </button>
+    <button (click)="execCommand('strikeThrough')" class="rte-btn" title="Strikethrough">
+      <s>S</s>
+    </button>
+
+    <div class="rte-divider"></div>
+
+    <!-- Text color -->
+    <label class="rte-color-picker" title="Text Color">
+      <input type="color" (change)="changeTextColor($event)" value="#000000">
+      <span>A</span>
+    </label>
+
+    <!-- Background color -->
+    <label class="rte-color-picker" title="Highlight Color">
+      <input type="color" (change)="changeBackgroundColor($event)" value="#ffff00">
+      <span>⬛</span>
+    </label>
+
+    <div class="rte-divider"></div>
+
+    <!-- Alignment buttons -->
+    <button (click)="execCommand('justifyLeft')" class="rte-btn" title="Align Left">
+      ☰
+    </button>
+    <button (click)="execCommand('justifyCenter')" class="rte-btn" title="Align Center">
+      ☷
+    </button>
+    <button (click)="execCommand('justifyRight')" class="rte-btn" title="Align Right">
+      ☱
+    </button>
+    <button (click)="execCommand('justifyFull')" class="rte-btn" title="Justify">
+      ☶
+    </button>
+
+    <div class="rte-divider"></div>
+
+    <!-- Lists -->
+    <button (click)="execCommand('insertUnorderedList')" class="rte-btn" title="Bullet List">
+      ≡
+    </button>
+    <button (click)="execCommand('insertOrderedList')" class="rte-btn" title="Numbered List">
+      ≣
+    </button>
+
+    <div class="rte-divider"></div>
+
+    <!-- Insert elements -->
+    <button (click)="insertLink()" class="rte-btn" title="Insert Link">
+      🔗
+    </button>
+    <button (click)="insertImage()" class="rte-btn" title="Insert Image">
+      🖼️
+    </button>
+
+    <div class="rte-divider"></div>
+
+    <!-- Undo/Redo -->
+    <button (click)="execCommand('undo')" class="rte-btn" title="Undo (Ctrl+Z)">
+      ↶
+    </button>
+    <button (click)="execCommand('redo')" class="rte-btn" title="Redo (Ctrl+Y)">
+      ↷
+    </button>
+
+    <div class="rte-divider"></div>
+
+    <!-- Clear formatting -->
+    <button (click)="clearFormatting()" class="rte-btn" title="Clear Formatting">
+      🗑️
+    </button>
+  </div>
+
+  <!-- Editor area -->
+  <div 
+    #editor
+    class="rte-editor"
+    contenteditable="true"
+    [attr.data-placeholder]="placeholder"
+    [style.height]="height"
+    (input)="updateContent()"
+    (paste)="updateContent()"
+  ></div>
+</div>

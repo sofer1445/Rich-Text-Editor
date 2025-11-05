@@ -1,0 +1,27 @@
+{
+  "name": "@sofer1445/rich-text-editor",
+  "version": "1.0.0",
+  "description": "A rich text editor component for Angular 20 with Word-like features",
+  "keywords": [
+    "angular",
+    "rich-text-editor",
+    "wysiwyg",
+    "text-editor",
+    "angular20"
+  ],
+  "author": "sofer1445",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sofer1445/Rich-Text-Editor.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

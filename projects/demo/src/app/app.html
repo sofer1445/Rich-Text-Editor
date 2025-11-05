@@ -1,0 +1,34 @@
+<div class="demo-container">
+  <header>
+    <h1>{{ title }}</h1>
+    <p>A powerful WYSIWYG text editor for Angular 20</p>
+  </header>
+
+  <main>
+    <div class="editor-section">
+      <h2>Try it out</h2>
+      <rte-rich-text-editor
+        [(content)]="editorContent"
+        [placeholder]="'Start typing your content here...'"
+        [height]="'500px'"
+        (onContentChange)="handleContentChange($event)">
+      </rte-rich-text-editor>
+    </div>
+
+    <div class="output-section">
+      <h2>HTML Output</h2>
+      <div class="html-output">
+        <pre><code>{{ editorContent }}</code></pre>
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <h2>Preview</h2>
+      <div class="preview-content" [innerHTML]="editorContent"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Built with Angular 20 • <a href="https://github.com/sofer1445/Rich-Text-Editor" target="_blank">View on GitHub</a></p>
+  </footer>
+</div>
