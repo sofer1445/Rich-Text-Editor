@@ -1,6 +1,6 @@
 {
   "name": "@sofer1445/angular-rich-text-editor",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Angular 20 Rich Text Editor with Hebrew support - עורך טקסט עשיר לאנגולר",
   "keywords": [
     "angular",
@@ -21,18 +21,9 @@
     "type": "git",
     "url": "https://github.com/sofer1445/Rich-Text-Editor.git"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
-    "publish:npm": "npm run build && npm publish --access public"
+    "publish:npm": "npm run build && cd dist && npm publish --access public"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^20.0.0",
