@@ -2,6 +2,8 @@
 
 A powerful and feature-rich WYSIWYG text editor component for Angular 20, similar to Microsoft Word.
 
+![Rich Text Editor Demo](./docs/screenshot.png)
+
 ## 🚀 Features
 
 - ✨ **Rich Text Formatting**: Bold, Italic, Underline, Strikethrough
