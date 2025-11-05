@@ -1,55 +1,109 @@
-# Angular Rich Text Editor (Standalone Component)
+# Angular Rich Text Editor
 
-קומפוננטת עורך טקסט עשיר פשוטה עבור Angular 20, תומכת ב-RTL ועברית.
+> 📝 A lightweight, standalone rich text editor component for Angular 20+ with Hebrew and RTL support.
 
-מבנה התיקייה שנוצר:
+[![npm version](https://img.shields.io/npm/v/@sofer1445/angular-rich-text-editor.svg)](https://www.npmjs.com/package/@sofer1445/angular-rich-text-editor)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-my-rich-editor-library/
-├── src/
-│   ├── lib/
-│   │   └── rich-text-editor.component.ts
-│   └── public-api.ts
-├── package.json
-├── ng-package.json
-└── README.md
+## ✨ Features
 
-מה עשיתי:
-- הוספתי את הקומפוננטה `RichTextEditorComponent` ב-`src/lib/rich-text-editor.component.ts`.
-- הוספתי את `src/public-api.ts` (כניסת הספרייה עבור ng-packagr).
-- הוספתי `package.json` ו-`ng-package.json` בהתאם להגדרות ששלחת.
+- 🎨 **Rich Text Formatting**: Bold, Italic, Underline
+- 📏 **Font Sizes**: 7 different size options
+- 📑 **Headings**: Support for H1-H4 and paragraphs
+- ↔️ **Text Alignment**: Right, Center, Left (perfect for RTL/LTR)
+- 📋 **Lists**: Ordered and Unordered lists
+- ⏮️ **Undo/Redo**: Full history support
+- 🌐 **RTL Support**: Built-in Hebrew and RTL language support
+- 🔌 **Standalone Component**: No module imports needed
+- 📦 **ngModel Compatible**: Works seamlessly with Angular Forms
 
-איך לבנות ולפרסם (מקומי / CI):
-
-1. להתקין תלותיות (בפרויקט הספרייה):
+## 🚀 Installation
 
 ```bash
-cd my-rich-editor-library
-npm install
+npm install @sofer1445/angular-rich-text-editor
 ```
 
-2. לבנות את הספרייה בעזרת ng-packagr:
+## 📖 Usage
 
-```bash
-npm run build
+### Basic Example
+
+```typescript
+import { Component } from '@angular/core';
+import { RichTextEditorComponent } from '@sofer1445/angular-rich-text-editor';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RichTextEditorComponent, FormsModule],
+  template: `
+    <rich-text-editor [(ngModel)]="content"></rich-text-editor>
+  `
+})
+export class AppComponent {
+  content = '<p>Start typing here...</p>';
+}
 ```
 
-3. לפרסם ל-NPM (לאחר בדיקה):
+### With Reactive Forms
 
-```bash
-npm run publish:npm
+```typescript
+import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { RichTextEditorComponent } from '@sofer1445/angular-rich-text-editor';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RichTextEditorComponent, ReactiveFormsModule],
+  template: `
+    <rich-text-editor [formControl]="editorControl"></rich-text-editor>
+  `
+})
+export class AppComponent {
+  editorControl = new FormControl('<p>Hello World!</p>');
+}
 ```
 
-שימוש בספרייה באפליקציית לקוח (לאחר פרסום):
+## 🎯 Requirements
 
-```ts
-import { RichTextEditorComponent } from '@yourname/angular-rich-text-editor';
+- **Angular**: ^20.0.0
+- **@angular/common**: ^20.0.0
+- **@angular/forms**: ^20.0.0
 
-// ואז להשתמש ב-<rich-text-editor [(ngModel)]="myContent"></rich-text-editor>
+## 🛠️ API
+
+### Component Selector
+
+```html
+<rich-text-editor></rich-text-editor>
 ```
 
-הערות ונקודות חשובות:
-- הבנייה (`ng-packagr`) דורשת חבילות dev כמו `ng-packagr` ו-`@angular/compiler-cli`. אם תריץ `npm install` בתוך `my-rich-editor-library` זה יתקין אותן (בהנחה שיש גישה לאינטרנט).
-- בסביבה זו לא ניסיתי להריץ את הבנייה אוטומטית; אם תרצה, אוכל לנסות להריץ `npm install` ו-`npm run build` ולדווח על התוצאות/שגיאות.
-- תיקנתי את `styles` של הקומפוננטה כך שיהיה מחרוזת תבנית (template string), אחרת TypeScript היה זורק שגיאה.
+### Supported by ControlValueAccessor
 
-רוצה שאנסה להריץ `npm install` ו`npm run build` כאן ולדווח על התוצאות? אני יכול להמשיך ולתקן שגיאות בנייה במידה ויהיו.
+The component implements `ControlValueAccessor` interface, making it compatible with:
+- `[(ngModel)]` - Two-way data binding
+- `[formControl]` - Reactive forms
+- `formControlName` - Forms with FormGroup
+
+## 🌍 RTL Support
+
+The editor is configured with `dir="rtl"` by default, making it perfect for Hebrew and Arabic content. The toolbar icons and alignment buttons are optimized for RTL usage.
+
+## 📄 License
+
+MIT © [sofer1445](https://github.com/sofer1445)
+
+## 🔗 Links
+
+- [GitHub Repository](https://github.com/sofer1445/Rich-Text-Editor)
+- [NPM Package](https://www.npmjs.com/package/@sofer1445/angular-rich-text-editor)
+- [Report Issues](https://github.com/sofer1445/Rich-Text-Editor/issues)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+**Made with ❤️ for the Angular community**
